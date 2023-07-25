@@ -1,6 +1,8 @@
 <template>
   <div>
     <RedBox />
+    <GreenBox />
+    <SimpleCard />
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="box">redbox: {{ x }} {{ y }}</div>
+  <div class="box">greenbox: {{ x }} {{ y }}</div>
 </template>
 
 <script setup>
@@ -10,6 +10,6 @@ const { x, y } = useMouse();
 .box {
   width: 500px;
   height: 200px;
-  background-color: rgb(255, 184, 184);
+  background-color: rgb(222, 255, 184);
 }
 </style>
