@@ -1,9 +1,12 @@
 <template>
-  <div class="box">greenbox: {{ x }} {{ y }}</div>
+  <div class="box">
+    
+  </div>
+  
 </template>
 
 <script setup>
-const { x, y } = useMouse();
+
 </script>
 
 <style scoped>

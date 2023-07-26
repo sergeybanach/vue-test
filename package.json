@@ -12,5 +12,10 @@
     "@nuxt/devtools": "latest",
     "@types/node": "^18.17.0",
     "nuxt": "^3.6.5"
+  },
+  "dependencies": {
+    "@types/maplibre-gl": "^1.14.0",
+    "maplibre-gl": "^3.2.1",
+    "typescript": "^5.1.6"
   }
 }

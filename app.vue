@@ -1,20 +1,18 @@
 <template>
   <div>
-    <RedBox />
-    <GreenBox />
-    <SimpleCard />
+    <Map />
   </div>
 </template>
 
-<script setup>
-// import { useMouse } from '/mouse.js'
-// const { data, refresh, pending } = await useAsyncData("/api/hello", () =>
-//   $fetch("/api/hello")
+<script>
+export default {
   
-
-// );
-const count = ref(1);
-const double = computed(() => count.value * 2)
-const {x, y} = useMouse();
-
+};
 </script>
+
+<style>
+.map {
+  width: 500px;
+  height: 200px;
+}
+</style>

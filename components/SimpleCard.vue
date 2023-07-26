@@ -1,8 +1,10 @@
 <template>
   <div class="outer-box">
     <div class="header grid-item">
-      <div class="title">title title title</div>
-      <div class="subtitle">subtitle subtitle</div>
+      <div class="title">Lorem ipsum dolor sit amet.</div>
+      <div class="subtitle">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, inventore!
+      </div>
     </div>
     <div class="content grid-item">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum doloremque
@@ -20,6 +22,20 @@
 <style>
 .grid-item {
   height: 100%;
+  padding: 1rem;
+}
+.outer-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 200px;
+  grid-template-rows: 200px 1fr 1fr;
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 200;
+  height: 200px;
+  position: relative;
+  gap: 5px;
 }
 .outer-box .img-box {
   background-image: url("/img.jpg");
@@ -40,7 +56,15 @@
   grid-column: 1 / span 2;
   grid-row: 2 / span 2;
 }
-@media (max-width: 400px) {
+.header .title {
+  font-size: 2rem;
+  color: black;
+}
+.header .subtitle {
+  font-size: 1.2rem;
+  color: rgb(78, 78, 78);
+}
+@media (max-width: 600px) {
   .outer-box .img-box {
     grid-column: 3;
     grid-row: 1;
@@ -55,39 +79,21 @@
     grid-column: 1 / span 3;
     grid-row: 2 / span 2;
   }
+  .outer-box {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 1fr 1fr;
+  }
+}
+@media (max-width: 400px) {
+  .outer-box .img-box {
+    width: 50px;
+    height: 50px;
+  }
+  .outer-box {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 50px 1fr 1fr;
+  }
 }
 
-.header .title {
-  font-size: 2rem;
-  color: black;
-}
-.header .subtitle {
-  font-size: 1.5rem;
-  color: rgb(78, 78, 78);
-}
-.outer-box {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-row-gap: 20px;
-  grid-column-gap: 20px;
-  justify-content: center;
-  align-items: center;
-  width: 200;
-  height: 200px;
-  position: relative;
-  gap: 5px;
-}
-.outer-box .text {
-  font-size: 2rem;
-}
-.button {
-  background-color: rgb(196, 169, 133);
-  display: inline-block;
-  padding: 5px;
-  cursor: pointer;
-}
-.button:hover {
-  background-color: rgb(135, 117, 92);
-}
+
 </style>
