@@ -1,12 +1,16 @@
 <template>
   <div>
-    <Map />
+    <MapButtons />
+    <MapComposition />
   </div>
 </template>
 
 <script>
 export default {
-  
+  setup() {
+    console.log();
+    
+  },
 };
 </script>
 

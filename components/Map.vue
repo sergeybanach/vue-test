@@ -7,14 +7,21 @@
     /></a>
     <div class="map" ref="map" id="map"></div>
   </div>
+  <div style="width: 500px; height: 200px; background-color: aqua">
+    {{ myRef }}
+  </div>
 </template>
 
 <script>
 import { Map } from "maplibre-gl";
 import { shallowRef, onMounted, onUnmounted, markRaw } from "vue";
-
+import { useLocalStorage, useMouse, usePreferredDark } from '@vueuse/core'
 export default {
   name: "Map",
+  props: {
+    lng: null,
+    lat: null,
+  },
   mounted() {
     const map = new Map({
       container: "map",
@@ -42,6 +49,12 @@ export default {
         ],
       },
     });
+  },
+  setup(props, { expose }) {
+    
+    return {
+      
+    };
   },
 };
 </script>
