@@ -15,17 +15,17 @@
 <script>
 import { Map } from "maplibre-gl";
 import { shallowRef, onMounted, onUnmounted, markRaw } from "vue";
-import { useLocalStorage, useMouse, usePreferredDark } from '@vueuse/core'
+import { useLocalStorage, useMouse, usePreferredDark } from "@vueuse/core";
 export default {
   name: "Map",
   props: {
-    lng: null,
-    lat: null,
+    lng: "57.811",
+    lat: "28.405",
   },
   mounted() {
     const map = new Map({
       container: "map",
-      center: [12.550343, 55.665957],
+      center: [this.lng, this.lat],
       zoom: 8,
       style: {
         version: 8,
@@ -51,10 +51,7 @@ export default {
     });
   },
   setup(props, { expose }) {
-    
-    return {
-      
-    };
+    return {};
   },
 };
 </script>

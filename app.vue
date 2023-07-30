@@ -1,22 +1,21 @@
 <template>
-  <div>
-    <MapButtons />
-    <MapComposition />
-  </div>
+  <map-container />
 </template>
 
 <script>
 export default {
   setup() {
-    console.log();
-    
-  },
+    const map = new ref("initial map value");
+    const t = ref("test ref")
+    provide("map", map);
+    function btnClick() {
+      console.log("Click button");
+    }
+    return {
+      btnClick
+    }
+  }
 };
 </script>
 
-<style>
-.map {
-  width: 500px;
-  height: 200px;
-}
-</style>
+<style scoped></style>
