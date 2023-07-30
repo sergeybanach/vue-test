@@ -1,65 +1,74 @@
 <template>
-    <div>
-        <map-elem />
-        <sample-button @click="btnClick">
-            draw points
-        </sample-button>
-
-    </div>
+  <div>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/maplibre-gl@3.2.1/dist/maplibre-gl.css"
+    />
+    <map-elem />
+    <map-controllers />
+  </div>
 </template>
 
 <script>
-import { Map, Marker } from 'maplibre-gl';
-    export default {
-        setup() {
-            const mapRef = new ref();
-            provide("mapRef", mapRef);
-            const map = new ref();
-            provide("map", map);
+import { Map, Marker, Popup } from "maplibre-gl";
+import styles_json from "~/public/dark-matter.json";
+export default {
+  setup() {
+    console.log(styles_json);
 
-            const markers = new ref([]);
+    const mapRef = ref();
+    provide("mapRef", mapRef);
+    let map = ref();
+    provide("map", map);
 
-            onMounted(() => {
-                sessionStorage.setItem("coord", JSON.stringify([28.345, 57.234]));
-                initMap();
-                
-            })
+    const markers = ref([]);
 
-            function initMap() {
-                map.value = new Map({
-                    // container: mapRef.value,
-                    container: "map",
-                    style: "https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL",
-                    center: [0, 0],
-                    zoom: 3
-                })
+    onMounted(() => {
+      localStorage.setItem("styles_json", JSON.stringify(styles_json));
+      initMap();
+    });
+    
+    function initMap() {
+      window.map = map;
+      map.value = new Map({
+        container: "map",
+        style: {
+          version: 8,
+          sources: {},
+          layers: [
+            {
+              id: "pink_layer",
+              type: "background",
+              paint: {
+                "background-color": "#ffbbcc"
+              }
             }
-
-            function drawPoints() {
-                // let points = JSON.parse(sessionStorage.getItem("points"))
-                // points.points.forEach(point => {
-                //     const marker = new Marker();
-                //     marker.setLngLat(point.coord)
-                //     marker.addTo(map.value);
-                //     console.log(marker);
-                //     markers.value.push(marker);
-                // });
-                // console.log(map.value);
-                map.value.setCenter([
-                    28.345, 57.234
-                ])
-            }
-
-            function btnClick() {
-                drawPoints();
-            }
-            return {
-                btnClick, markers
-            }
-        }
+          ]
+        },
+        center: [-77.04, 38.907],
+        zoom: 11.15,
+      });
     }
+
+    function btnClick() {
+      drawPoints();
+    }
+
+    return {
+      btnClick,
+      markers,
+      map,
+    };
+  },
+  mounted() {
+    console.log("mounted", this);
+  },
+  data() {
+    return {
+      test1: "test1",
+    };
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
