@@ -17,6 +17,7 @@
     "@types/maplibre-gl": "^1.14.0",
     "@vueuse/core": "^10.2.1",
     "maplibre-gl": "^3.2.1",
+    "nuxt-storage": "^1.2.2",
     "typescript": "^5.1.6"
   }
 }
