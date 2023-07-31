@@ -4,5 +4,13 @@ export default defineNuxtConfig({
     head: {
       title: "My title",
     },
+    
   },
+  
+  runtimeConfig: {
+    apiSecret: '123',
+    public: {
+      apiBase: process.env.apiBase || "apiBase"
+    }
+  }
 });

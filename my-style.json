@@ -1,0 +1,13 @@
+{
+  "version": 8,
+  "sources": {},
+  "layers": [
+    {
+      "id": "pink_layer",
+      "type": "background",
+      "paint": {
+        "background-color": "#ffbbcc"
+      }
+    }
+  ]
+}
