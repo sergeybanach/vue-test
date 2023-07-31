@@ -1,7 +1,8 @@
 <template>
   <div class="closable-box">
     <div class="close-btn" @click="closeBox">close</div>
-    <div>closable-block</div>
+    <map-controllers />
+    <output-component />
   </div>
 </template>
 

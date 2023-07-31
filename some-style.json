@@ -52,7 +52,7 @@
       "source": "openmaptiles",
       "source-layer": "globallandcover",
       "paint": {
-        "fill-color": "rgba(226, 236, 197, 1)",
+        "fill-color": "rgba(226, 236, 197, 0)",
         "fill-opacity": {
           "base": 1,
           "stops": [

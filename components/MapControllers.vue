@@ -1,24 +1,41 @@
 <template>
   <div class="map-controllers">
-    <sample-button @click="setZoom">zoom</sample-button>
+    <div>
+      <sample-button @click="zoomIn">zoomIn</sample-button>
+      <sample-button @click="zoomOut">zoomOut</sample-button>
+    </div>
+    <sample-button @click="setCenter">setCenter</sample-button>
+    <div>lng = <input type="text" name="" id="" v-model="lng" /></div>
+    <div>lat = <input type="text" name="" id="" v-model="lat" /></div>
   </div>
 </template>
 
 <script>
 export default {
   setup() {
+    const zoom = inject("zoom");
+    const center = inject("center");
     const map = inject("map");
-    function setZoom() {
-      console.log(map);
-      map.value.setZoom(15);
+    const lng = ref(center.value[0]);
+    const lat = ref(center.value[1]);
+
+    function zoomIn() {
+      zoom.value += 1;
     }
-    function drawPoints() {
-      map.value.setCenter([28.123, 57.324]);
-      map.value.setZoom(5);
-      const marker = new Marker().setLngLat([28.123, 57.123]).addTo(map.value);
+    function zoomOut() {
+      zoom.value -= 1;
+    }
+    function setCenter() {
+      map.value.setCenter([Number(lng.value), Number(lat.value)]);
+      center.value = [Number(lng.value), Number(lat.value)];
     }
     return {
-      setZoom,
+      zoomIn,
+      zoomOut,
+      lng,
+      lat,
+      setCenter,
+      center,
     };
   },
 };
